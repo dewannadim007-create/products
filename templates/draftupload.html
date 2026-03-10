@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Draft & Upload</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f2f2f2;}
+
+.header{
+    background:#4CAF50;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    position:relative;
+}
+
+.nav-button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:white;
+    color:#4CAF50;
+    border:none;
+    padding:8px 16px;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-button:hover{background:#e8f5e9;}
+
+.container{
+    margin:20px;
+    background:#eaeaea;
+    padding:20px;
+}
+
+h2{color:#4CAF50;}
+
+.msg-success{
+    background:#dfeadf;
+    padding:10px;
+    margin-bottom:15px;
+    border-left:4px solid #4CAF50;
+}
+
+.msg-error{
+    background:#fde8e8;
+    padding:10px;
+    margin-bottom:15px;
+    border-left:4px solid #e53935;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+}
+
+th{background:#f0f0f0;}
+
+button{
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+button:hover{background:#45a049;}
+
+.btn-edit{
+    background:#2196F3;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+.btn-edit:hover{background:#1769aa;}
+
+.action-cell{
+    display:flex;
+    gap:6px;
+    align-items:center;
+}
+
+.pagination{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.pagination a{text-decoration:none;}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <a href="{% url 'landing' %}" class="nav-button" style="left:20px;">← Back</a>
+    Draft & Upload
+    <a href="{% url 'approved_products' %}" class="nav-button" style="right:20px;">Approved Products →</a>
+</div>
+
+<div class="container">
+
+<h2>Upload Excel File</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags == 'error' %}msg-error{% else %}msg-success{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="excel_file" accept=".xlsx">
+    <button type="submit">Upload</button>
+</form>
+
+<hr>
+
+<h2>Draft Products</h2>
+
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Last Updated</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+{% for p in products %}
+<tr>
+    <td>{{ p.product_id }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.category }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.quantity }}</td>
+    <td>{{ p.last_updated|date:"Y-m-d H:i" }}</td>
+    <td>
+        <div class="action-cell">
+            <a href="{% url 'edit_product' p.product_id %}">
+                <button type="button" class="btn-edit">Edit</button>
+            </a>
+            <form method="POST" action="{% url 'approve' p.product_id %}">
+                {% csrf_token %}
+                <button type="submit">Approve</button>
+            </form>
+        </div>
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="7" style="text-align:center;padding:20px;color:#888;">No draft products found.</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">
+            <button type="button">← Prev</button>
+        </a>
+    {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">
+            <button type="button">Next →</button>
+        </a>
+    {% endif %}
+</div>
+
+</div>
+</body>
+</html>

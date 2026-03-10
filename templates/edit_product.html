@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Product</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f2f2f2;}
+
+.header{
+    background:#4CAF50;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    position:relative;
+}
+
+.nav-button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:white;
+    color:#4CAF50;
+    border:none;
+    padding:8px 16px;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-button:hover{background:#e8f5e9;}
+
+.container{
+    margin:40px auto;
+    max-width:500px;
+    background:#eaeaea;
+    padding:30px;
+    border-radius:6px;
+}
+
+h2{color:#4CAF50;}
+
+.msg-success{
+    background:#dfeadf;
+    padding:10px;
+    margin-bottom:15px;
+    border-left:4px solid #4CAF50;
+}
+
+.msg-error{
+    background:#fde8e8;
+    padding:10px;
+    margin-bottom:15px;
+    border-left:4px solid #e53935;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-sizing:border-box;
+}
+
+input[readonly]{
+    background:#f0f0f0;
+    color:#888;
+    cursor:not-allowed;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    padding:10px 24px;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.btn-save{
+    background:#4CAF50;
+    color:white;
+}
+
+.btn-save:hover{background:#45a049;}
+
+.btn-cancel{
+    background:#888;
+    color:white;
+}
+
+.btn-cancel:hover{background:#666;}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <a href="{% url 'draft_upload' %}" class="nav-button" style="left:20px;">← Back</a>
+    Edit Product
+</div>
+
+<div class="container">
+
+<h2>Edit Product #{{ product.product_id }}</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="{% if message.tags == 'error' %}msg-error{% else %}msg-success{% endif %}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label>Product ID</label>
+        <input type="text" value="{{ product.product_id }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" value="{{ product.name }}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input type="text" name="category" value="{{ product.category }}" required>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" name="price" value="{{ product.price }}" step="0.01" min="0" required>
+    </div>
+
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" name="quantity" value="{{ product.quantity }}" min="0" required>
+    </div>
+
+    <div class="buttons">
+        <button type="submit" class="btn-save">Save Changes</button>
+        <a href="{% url 'draft_upload' %}"><button type="button" class="btn-cancel">Cancel</button></a>
+    </div>
+
+</form>
+
+</div>
+</body>
+</html>
