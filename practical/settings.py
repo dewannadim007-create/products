@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=3ut63v%8^s$!rbfomq65hip0&!frquwsm4rzkbwi06c*5$d28'
+SECRET_KEY = os.getenv(
+    'SECRET_KEY',
+    'django-insecure-=3ut63v%8^s$!rbfomq65hip0&!frquwsm4rzkbwi06c*5$d28'
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True').strip().lower() == 'true'
 
-ALLOWED_HOSTS = ['products-jk9t.onrender.com']
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv('ALLOWED_HOSTS', 'products-jk9t.onrender.com').split(',')
+    if host.strip()
+]
 
 
 # Application definition
@@ -51,7 +59,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'practical.urls'
-import os
+
 temp = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
