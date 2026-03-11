@@ -23,6 +23,7 @@
     <script>
         (function () {
             // TEMPLATE: Replace with your EmailJS Public Key
+            // How to get it: Sign up at https://www.emailjs.com → Account → API Keys
             emailjs.init({
                 publicKey: "YOUR_EMAILJS_PUBLIC_KEY"
             });
@@ -35,6 +36,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
+                <!-- TEMPLATE: Change icon class (Font Awesome) to any icon you like, e.g. fa-laptop-code, fa-atom -->
                 <i class="fas fa-code"></i>
             </a>
             <ul class="nav-menu" id="nav-menu">
@@ -59,14 +61,18 @@
         </div>
     </nav>
 
+    <!-- ===== HERO / HOME SECTION ===== -->
     <section id="home" class="home">
         <div class="home-content">
             <div class="home-text">
                 <h1 class="home-title">
                     <span class="greeting">Hi, I'm</span>
+                    <!-- TEMPLATE: Replace with your full name -->
                     <span class="name">Your Full Name</span>
                 </h1>
+                <!-- TEMPLATE: Replace with your role/tagline, e.g. "Full Stack Developer", "ML Researcher" -->
                 <p class="home-subtitle">Your Role / Tagline Here</p>
+                <!-- TEMPLATE: One or two sentences describing you and what you're passionate about -->
                 <p class="home-description">
                     Brief personal intro — your current status (e.g. final year student, working professional)
                     and what drives you.
@@ -76,7 +82,6 @@
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
-
             <div class="home-visual">
                 <div class="terminal-window">
                     <div class="terminal-header">
@@ -85,100 +90,372 @@
                             <span class="minimize"></span>
                             <span class="maximize"></span>
                         </div>
+                        <!-- TEMPLATE: Rename the terminal file title to something relevant to you -->
                         <span class="terminal-title">about_me.py</span>
                     </div>
-
                     <div class="terminal-body" id="terminal-body"
                         onclick="document.getElementById('terminal-input').focus()">
-
                         <div id="terminal-output">
                             <div class="terminal-line">
+                                <!-- TEMPLATE: Update the comment to reflect your name -->
                                 <span class="t-comment"># Welcome to [Your Name]'s Portfolio CLI</span>
                             </div>
-
                             <div class="terminal-line">
                                 Type <span class="t-keyword">help</span> and press Enter to start.
                             </div>
                             <br>
                         </div>
-
                         <div class="input-line">
+                            <!-- TEMPLATE: Replace "yourname" with your username/handle -->
                             <span class="t-path">visitor@yourname:~$</span>
                             <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== ABOUT SECTION ===== -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
+            <!-- TEMPLATE: Write 3–5 sentences about yourself:
+                 - Your current status (student, professional, etc.)
+                 - Your technical background and main languages/tools
+                 - Your research or career focus
+                 - A personal touch (hobbies, interests outside coding)
+            -->
             <p class="section-subtitle">
-                Write a few sentences about yourself here. Mention your background,
-                the languages and tools you started with, what you mainly work with today,
-                and your current focus area.
+                Write a few sentences about yourself here. Mention your background (e.g. degree or current role),
+                the languages and tools you started with, what you mainly work with today, and your current
+                focus area (e.g. research, freelancing, open source). Feel free to add a personal sentence
+                about your hobbies or what you enjoy outside of coding.
             </p>
         </div>
     </section>
 
+    <!-- ===== SKILLS SECTION ===== -->
+    <!-- TEMPLATE: Add, remove, or replace skill cards below.
+         Find icon URLs at: https://github.com/devicons/devicon/tree/master/icons
+         Format: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/TECH/TECH-original.svg
+    -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
-
             <div class="skills-row">
 
+                <!-- EXAMPLE SKILL CARD — duplicate this block for each skill -->
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python">
                     <span>Python</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                        alt="TensorFlow">
                     <span>Machine Learning</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                        alt="Pandas">
                     <span>Data Analysis</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
                     <span>Java</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
                     <span>MySQL</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                        alt="MongoDB">
                     <span>MongoDB</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
                     <span>C/C++</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
                     <span>HTML/CSS</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript">
                     <span>JavaScript</span>
                 </div>
 
                 <div class="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
                     <span>PHP</span>
                 </div>
+
+                <!-- TEMPLATE: Add more skill cards here following the same pattern -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED PROJECTS SECTION ===== -->
+    <!-- TEMPLATE: Each "project-showcase" block is one featured project.
+         Add or remove blocks as needed. Recommended: 2–3 featured projects.
+    -->
+    <section id="projects" class="featured-project">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+
+            <!-- PROJECT 1 -->
+            <div class="project-showcase">
+                <div class="project-preview">
+                    <!-- TEMPLATE: Replace with your project's image file or URL.
+                         Ideal size: ~600×400px. Use a diagram, screenshot, or mockup. -->
+                    <img src="project1_image.png" alt="Project 1 Screenshot" class="project-image">
+                </div>
+                <div class="project-details">
+                    <!-- TEMPLATE: Replace with your project title -->
+                    <h3 class="project-title">Your Project Title</h3>
+                    <!-- TEMPLATE: 1–2 sentences summarizing what the project is -->
+                    <p class="project-desc">
+                        A short description of your first featured project. What does it do? What's its purpose?
+                    </p>
+                    <div class="project-info-grid">
+                        <div class="info-block">
+                            <!-- TEMPLATE: Describe the problem this project solves -->
+                            <h4 class="info-title">The Problem</h4>
+                            <p>What challenge or gap motivated this project?</p>
+                        </div>
+                        <div class="info-block">
+                            <!-- TEMPLATE: Describe your solution and key results/metrics -->
+                            <h4 class="info-title">The Solution</h4>
+                            <p>What did you build, and what results did you achieve? (Include metrics if possible.)</p>
+                        </div>
+                    </div>
+                    <!-- TEMPLATE: Add tags for the technologies used -->
+                    <div class="project-tags">
+                        <span class="project-tag">Technology 1</span>
+                        <span class="project-tag">Technology 2</span>
+                        <span class="project-tag">Technology 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-showcase">
+                <div class="project-preview">
+                    <!-- TEMPLATE: Replace with your second project's image -->
+                    <img src="project2_image.png" alt="Project 2 Screenshot" class="project-image">
+                </div>
+                <div class="project-details">
+                    <!-- TEMPLATE: Replace with your second project title -->
+                    <h3 class="project-title">Your Second Project Title</h3>
+                    <!-- TEMPLATE: 1–2 sentences about the project -->
+                    <p class="project-desc">
+                        A short description of your second featured project.
+                    </p>
+                    <div class="project-info-grid">
+                        <div class="info-block">
+                            <h4 class="info-title">The Gap</h4>
+                            <p>What gap or need does this project address?</p>
+                        </div>
+                        <div class="info-block">
+                            <h4 class="info-title">My Contribution</h4>
+                            <p>What specific work did you do? What makes your contribution unique?</p>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Technology 1</span>
+                        <span class="project-tag">Technology 2</span>
+                        <span class="project-tag">Technology 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEMPLATE: Copy one of the blocks above to add a third project -->
+
+        </div>
+    </section>
+
+    <!-- ===== CODE ARCHIVE SECTION ===== -->
+    <!-- TEMPLATE: These are smaller/older projects. Add as many archive cards as you like. -->
+    <section id="archive" class="code-archive">
+        <div class="container">
+            <h2 class="section-title">Code Archive</h2>
+            <p class="section-subtitle archive-subtitle">Selected experiments and academic works</p>
+            <div class="archive-grid">
+
+                <!-- ARCHIVE CARD 1 -->
+                <div class="archive-card">
+                    <div class="archive-card-header">
+                        <span class="folder-icon"></span>
+                        <!-- TEMPLATE: Replace href with your GitHub repo URL -->
+                        <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME" class="archive-link"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <!-- TEMPLATE: Replace with your project name -->
+                    <h3>Project Name</h3>
+                    <!-- TEMPLATE: One sentence describing what the project does -->
+                    <p>Short description of this project — what it does and what it was built for.</p>
+                    <div class="archive-tags">
+                        <!-- TEMPLATE: Add tech stack tags -->
+                        <span>Language/Tech 1</span>
+                        <span>Language/Tech 2</span>
+                    </div>
+                </div>
+
+                <!-- ARCHIVE CARD 2 -->
+                <div class="archive-card">
+                    <div class="archive-card-header">
+                        <span class="folder-icon"></span>
+                        <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME_2" class="archive-link"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <h3>Another Project Name</h3>
+                    <p>Short description of this project.</p>
+                    <div class="archive-tags">
+                        <span>Language/Tech 1</span>
+                        <span>Language/Tech 2</span>
+                    </div>
+                </div>
+
+                <!-- ARCHIVE CARD 3 -->
+                <div class="archive-card">
+                    <div class="archive-card-header">
+                        <span class="folder-icon"></span>
+                        <a href="https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME_3" class="archive-link"
+                            target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <h3>Third Project Name</h3>
+                    <p>Short description of this project.</p>
+                    <div class="archive-tags">
+                        <span>Language/Tech 1</span>
+                        <span>Language/Tech 2</span>
+                    </div>
+                </div>
+
+                <!-- TEMPLATE: Duplicate a card above to add more archive projects -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LINKS SECTION ===== -->
+    <!-- TEMPLATE: Add or remove link cards. Common options: GitHub, LinkedIn, Kaggle, Twitter/X, personal blog.
+         Find Font Awesome icons at: https://fontawesome.com/icons
+    -->
+    <section id="links" class="links">
+        <div class="container">
+            <h2 class="section-title">Links</h2>
+            <p class="section-subtitle">Check out my work and connect with me</p>
+            <div class="links-grid">
+
+                <!-- TEMPLATE: Replace href with your GitHub profile URL -->
+                <a href="https://github.com/YOUR_GITHUB_USERNAME" class="link-card" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Check out my code repositories</p>
+                </a>
+
+                <!-- TEMPLATE: Replace with your preferred social link (LinkedIn, Twitter, Facebook, etc.)
+                     Change the icon class and text accordingly. Remove if not needed. -->
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" class="link-card" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect professionally</p>
+                </a>
+
+                <!-- TEMPLATE: Replace with your Kaggle profile, or remove this card if not applicable -->
+                <a href="https://kaggle.com/YOUR_KAGGLE_USERNAME" class="link-card" target="_blank">
+                    <i class="fab fa-kaggle"></i>
+                    <h3>Kaggle</h3>
+                    <p>View my data science work</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">Feel free to reach out — I'll get back to you within 24 hours.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <!-- TEMPLATE: Replace with your email address -->
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f9eff5f2aee5ede1e9ecc0e5f8e1edf0ece5aee3efed">[email&#160;protected]</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <!-- TEMPLATE: Replace with your phone number, or remove this block -->
+                            <p>+1 (000) 000-0000</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <!-- TEMPLATE: Replace with your city/country -->
+                            <p>City, Country</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== EMAIL FORM (powered by EmailJS) =====
+                     HOW TO SET UP EmailJS:
+                     1. Sign up at https://www.emailjs.com (free tier available)
+                     2. Create an Email Service (Gmail, Outlook, etc.) → note your SERVICE_ID
+                     3. Create an Email Template → note your TEMPLATE_ID
+                     4. Go to Account → API Keys → copy your PUBLIC_KEY
+                     5. Replace the 3 placeholder values below with your own IDs
+                -->
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="from_name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="from_email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                        <span>Send Email</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div id="form-status" style="margin-top: 15px; padding: 10px; border-radius: 5px; display: none;">
+                    </div>
+                </form>
 
             </div>
         </div>
@@ -186,11 +463,60 @@
 
     <footer class="footer">
         <div class="container">
+            <!-- TEMPLATE: Replace "Your Name" with your name -->
             <p>&copy; 2025 Your Name. All rights reserved.</p>
             <p class="footer-note">Built with HTML, CSS & JavaScript</p>
         </div>
     </footer>
 
-</body>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault();
 
-</html>
+            const submitBtn = document.getElementById("submit-btn");
+            const formStatus = document.getElementById("form-status");
+            const originalHTML = submitBtn.innerHTML;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+            formStatus.style.display = "none";
+
+            emailjs.sendForm(
+                // TEMPLATE: Replace with your EmailJS Service ID (e.g. "service_abc123")
+                "YOUR_EMAILJS_SERVICE_ID",
+                // TEMPLATE: Replace with your EmailJS Template ID (e.g. "template_xyz789")
+                "YOUR_EMAILJS_TEMPLATE_ID",
+                this,
+                {
+                    // TEMPLATE: Replace with your EmailJS Public Key
+                    publicKey: "YOUR_EMAILJS_PUBLIC_KEY"
+                }
+            )
+                .then(() => {
+                    showSuccessMessage();
+                })
+                .catch((error) => {
+                    console.error("Raw Error:", error);
+
+                    if (error.message && (error.message.includes("Unexpected token") || error.message.includes("valid JSON"))) {
+                        console.log("Caught JSON error but treating as success (False Negative).");
+                        showSuccessMessage();
+                    } else {
+                        formStatus.style.display = "block";
+                        formStatus.style.backgroundColor = "#f8d7da";
+                        formStatus.style.color = "#721c24";
+                        formStatus.style.border = "1px solid #f5c6cb";
+                        formStatus.innerHTML = '<i class="fas fa-exclamation-circle"></i> Failed to send. Please try again later.';
+                    }
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalHTML;
+                });
+
+            function showSuccessMessage() {
+                formStatus.style.display = "block";
+                formStatus.style.backgroundColor = "#d4edda";
+                formStatus.style.color = "#155724";
+                formStatus.style.border = "1px solid #c3e6cb";
+                formStatus.inner
