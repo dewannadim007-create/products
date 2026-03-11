@@ -7,8 +7,8 @@ html.setAttribute('data-theme', currentTheme);
 updateThemeIcon(currentTheme);
 
 themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const current = html.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
@@ -23,10 +23,6 @@ function updateThemeIcon(theme) {
         themeIcon.classList.add('fa-moon');
     }
 }
-
-themeToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
 
 const particlesContainer = document.getElementById('particles-js');
 
@@ -212,13 +208,15 @@ const terminalInput = document.getElementById('terminal-input');
 const terminalOutput = document.getElementById('terminal-output');
 const terminalBody = document.getElementById('terminal-body');
 
+// TEMPLATE: Update these commands with your own info
 const commands = {
     help: "Available commands: <span class='t-keyword'>about</span>, <span class='t-keyword'>skills</span>, <span class='t-keyword'>projects</span>, <span class='t-keyword'>contact</span>, <span class='t-keyword'>clear</span>",
-    about: "Final year CSE student. Passionate about <span class='t-string'>Deep Learning</span> and creating <span class='t-function'>Trusted Datasets</span> for research.",
-    skills: "['Python', 'TensorFlow', 'Java', 'MySQL', 'MongoDB', 'Data Analysis','C/C++', 'php','HTML/CSS','js']",
-    projects: "Featured: <span class='t-function'>Deepfake Detection Model</span> (91% Accuracy). Check the Projects section for more!",
-    contact: "Email: <span class='t-string'>2022100000084@seu.edu.bd</span>",
+    about: "TEMPLATE: Replace this with a short bio. e.g. Final year CS student passionate about <span class='t-string'>Machine Learning</span>.",
+    skills: "TEMPLATE: Replace with your skills array. e.g. ['Python', 'JavaScript', 'React', 'Node.js']",
+    projects: "TEMPLATE: Replace with your featured project. e.g. <span class='t-function'>My Project Name</span> — short description.",
+    contact: "TEMPLATE: Replace with your email. e.g. Email: <span class='t-string'>your.email@example.com</span>",
     sudo: "<span class='t-error'>Permission denied: user is not in the sudoers file. This incident will be reported.</span>",
+    // TEMPLATE: Replace "yourname" with your username/handle
     whoami: "visitor"
 };
 
@@ -228,7 +226,8 @@ if (terminalInput) {
             const input = this.value.trim().toLowerCase();
             const historyLine = document.createElement('div');
             historyLine.className = 'terminal-line';
-            historyLine.innerHTML = `<span class="t-path">visitor@nadim:~$</span> ${this.value}`;
+            // TEMPLATE: Replace "yourname" with your username/handle
+            historyLine.innerHTML = `<span class="t-path">visitor@yourname:~$</span> ${this.value}`;
             terminalOutput.appendChild(historyLine);
 
             if (input === 'clear') {
