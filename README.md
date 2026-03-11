@@ -2,8 +2,6 @@
 
 A clean, interactive, and fully customizable personal portfolio template for developers. Built with **pure HTML, CSS, and JavaScript** — no frameworks, no npm, no build steps.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME)
-
 ## Features
 
 - **Interactive Terminal** — A working CLI on the home screen. Visitors can type commands like `help`, `skills`, or `about` to explore your site.
@@ -39,19 +37,6 @@ This repository includes a GitHub Actions workflow that automatically deploys th
 3. Under **Build and deployment**, set the **Source** to **GitHub Actions**
 4. Push any change to the `main` branch (or manually trigger the workflow from the **Actions** tab)
 5. Your portfolio will be live at `https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/`
-
----
-
-## Quick Deploy with Vercel (Alternative)
-
-The fastest way to get your portfolio live on Vercel:
-
-1. Click the **Deploy with Vercel** button above
-2. Vercel will fork this repo into your GitHub account and deploy it instantly
-3. Customize `index.html` with your own info
-4. Push — Vercel auto-redeploys
-
-You will have a live portfolio at `your-name.vercel.app` in under 5 minutes.
 
 ---
 
@@ -124,9 +109,8 @@ Browse available icons at the [devicon gallery](https://devicon.dev).
 ```
 /
 ├── index.html        # All content and structure — main file to edit
-├── styles.css        # All styling and theme variables
+├── style.css         # All styling and theme variables
 ├── script.js         # Terminal logic, particles config, scroll behavior
-├── vercel.json       # Vercel routing config (for clean deploys)
 ├── favicon.svg       # Browser tab icon
 └── /images           # Place your project screenshots here
 ```
