@@ -28,9 +28,23 @@ A clean, interactive, and fully customizable personal portfolio template for dev
 
 ---
 
-## Quick Deploy (Recommended)
+## Deploy to GitHub Pages
 
-The fastest way to get your portfolio live:
+This repository includes a GitHub Actions workflow that automatically deploys the site to GitHub Pages whenever you push to the `main` branch.
+
+### Steps to enable GitHub Pages
+
+1. Go to your repository on GitHub
+2. Click **Settings** → **Pages**
+3. Under **Build and deployment**, set the **Source** to **GitHub Actions**
+4. Push any change to the `main` branch (or manually trigger the workflow from the **Actions** tab)
+5. Your portfolio will be live at `https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/`
+
+---
+
+## Quick Deploy with Vercel (Alternative)
+
+The fastest way to get your portfolio live on Vercel:
 
 1. Click the **Deploy with Vercel** button above
 2. Vercel will fork this repo into your GitHub account and deploy it instantly
