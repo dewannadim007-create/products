@@ -25,71 +25,29 @@ function updateThemeIcon(theme) {
 }
 
 const particlesContainer = document.getElementById('particles-js');
-
 if (particlesContainer) {
     particlesJS("particles-js", {
-        "particles": {
-            "number": {
-                "value": 80,
-                "density": {
-                    "enable": true,
-                    "value_area": 800
-                }
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#aaaaaa" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#aaaaaa", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "grab" },
+                onclick: { enable: true, mode: "push" },
+                resize: true
             },
-            "color": {
-                "value": "#aaaaaa"
-            },
-            "shape": {
-                "type": "circle"
-            },
-            "opacity": {
-                "value": 0.5,
-                "random": false
-            },
-            "size": {
-                "value": 3,
-                "random": true
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#aaaaaa",
-                "opacity": 0.4,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 2,
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false
+            modes: {
+                grab: { distance: 140, line_linked: { opacity: 1 } }
             }
         },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {
-                    "enable": true,
-                    "mode": "grab"
-                },
-                "onclick": {
-                    "enable": true,
-                    "mode": "push"
-                },
-                "resize": true
-            },
-            "modes": {
-                "grab": {
-                    "distance": 140,
-                    "line_linked": {
-                        "opacity": 1
-                    }
-                }
-            }
-        },
-        "retina_detect": true
+        retina_detect: true
     });
 }
 
@@ -110,11 +68,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -122,11 +76,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 70;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
         }
     });
 });
@@ -137,21 +87,14 @@ const navLinks = document.querySelectorAll('.nav-link');
 function highlightNavLink() {
     let current = '';
     const scrollPosition = window.pageYOffset + 150;
-
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            current = sectionId;
+        if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+            current = section.getAttribute('id');
         }
     });
-
     navLinks.forEach(link => {
         link.classList.remove('active');
-        const linkHref = link.getAttribute('href');
-        if (linkHref === `#${current}`) {
+        if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
         }
     });
@@ -159,18 +102,11 @@ function highlightNavLink() {
 
 window.addEventListener('scroll', highlightNavLink);
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('revealed');
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('.skill-card, .archive-card, .link-card, .info-item, .project-showcase, .section-title, .section-subtitle').forEach(el => {
     el.classList.add('reveal-element');
@@ -178,8 +114,7 @@ document.querySelectorAll('.skill-card, .archive-card, .link-card, .info-item, .
 });
 
 document.querySelectorAll('.skills-row, .archive-grid, .links-grid').forEach(container => {
-    const cards = container.querySelectorAll('.skill-card, .archive-card, .link-card');
-    cards.forEach((card, index) => {
+    container.querySelectorAll('.skill-card, .archive-card, .link-card').forEach((card, index) => {
         card.style.transitionDelay = `${index * 0.1}s`;
     });
 });
@@ -189,12 +124,8 @@ if (terminal) {
     document.addEventListener('mousemove', (e) => {
         if (window.innerWidth > 768) {
             const rect = terminal.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            const moveX = (e.clientX - centerX) / 50;
-            const moveY = (e.clientY - centerY) / 50;
-
+            const moveX = (e.clientX - (rect.left + rect.width / 2)) / 50;
+            const moveY = (e.clientY - (rect.top + rect.height / 2)) / 50;
             terminal.style.transform = `translateY(${-10 + moveY}px) rotateX(${-moveY * 0.5}deg) rotateY(${moveX * 0.5}deg)`;
         }
     });
@@ -208,25 +139,30 @@ const terminalInput = document.getElementById('terminal-input');
 const terminalOutput = document.getElementById('terminal-output');
 const terminalBody = document.getElementById('terminal-body');
 
-// TEMPLATE: Update these commands with your own info
+// TEMPLATE: Update these command responses with your own info
 const commands = {
     help: "Available commands: <span class='t-keyword'>about</span>, <span class='t-keyword'>skills</span>, <span class='t-keyword'>projects</span>, <span class='t-keyword'>contact</span>, <span class='t-keyword'>clear</span>",
-    about: "TEMPLATE: Replace this with a short bio. e.g. Final year CS student passionate about <span class='t-string'>Machine Learning</span>.",
-    skills: "TEMPLATE: Replace with your skills array. e.g. ['Python', 'JavaScript', 'React', 'Node.js']",
-    projects: "TEMPLATE: Replace with your featured project. e.g. <span class='t-function'>My Project Name</span> — short description.",
-    contact: "TEMPLATE: Replace with your email. e.g. Email: <span class='t-string'>your.email@example.com</span>",
+    // TEMPLATE: Replace with your own bio
+    about: "TEMPLATE: Replace with your bio. e.g. Final year CS student passionate about <span class='t-string'>Machine Learning</span>.",
+    // TEMPLATE: Replace with your skills
+    skills: "TEMPLATE: e.g. ['Python', 'JavaScript', 'React', 'Node.js']",
+    // TEMPLATE: Replace with your featured project
+    projects: "TEMPLATE: e.g. <span class='t-function'>My Project</span> — short description here.",
+    // TEMPLATE: Replace with your email
+    contact: "TEMPLATE: e.g. Email: <span class='t-string'>your.email@example.com</span>",
     sudo: "<span class='t-error'>Permission denied: user is not in the sudoers file. This incident will be reported.</span>",
-    // TEMPLATE: Replace "yourname" with your username/handle
     whoami: "visitor"
 };
 
 if (terminalInput) {
-    terminalInput.addEventListener('keydown', function(event) {
+    terminalInput.addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             const input = this.value.trim().toLowerCase();
+
+            // TEMPLATE: Replace "yourname" with your username/handle
             const historyLine = document.createElement('div');
             historyLine.className = 'terminal-line';
-            // TEMPLATE: Replace "yourname" with your username/handle
+            historyLine.style.opacity = '1';
             historyLine.innerHTML = `<span class="t-path">visitor@yourname:~$</span> ${this.value}`;
             terminalOutput.appendChild(historyLine);
 
@@ -235,23 +171,21 @@ if (terminalInput) {
             } else if (commands[input]) {
                 const responseLine = document.createElement('div');
                 responseLine.className = 'terminal-line indent';
+                responseLine.style.opacity = '1';
                 responseLine.innerHTML = commands[input];
                 terminalOutput.appendChild(responseLine);
             } else if (input !== '') {
                 const errorLine = document.createElement('div');
                 errorLine.className = 'terminal-line';
+                errorLine.style.opacity = '1';
                 errorLine.innerHTML = `<span class="t-error">Command not found: ${input}. Type 'help' for list.</span>`;
                 terminalOutput.appendChild(errorLine);
             }
 
             this.value = '';
-            setTimeout(() => {
-                terminalBody.scrollTop = terminalBody.scrollHeight;
-            }, 10);
+            setTimeout(() => { terminalBody.scrollTop = terminalBody.scrollHeight; }, 10);
         }
     });
 
-    terminalBody.addEventListener('click', () => {
-        terminalInput.focus();
-    });
+    terminalBody.addEventListener('click', () => terminalInput.focus());
 }
