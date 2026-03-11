@@ -1,0 +1,29 @@
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+This is a static site so Vercel handles it automatically, but this file makes routing explicit.
+
+---
+
+## Step 5: Share It
+
+Once your repo is live, people can find and use it via:
+- The **Deploy to Vercel** button in your README
+- Directly downloading the ZIP from GitHub (`Code → Download ZIP`)
+- Forking the repo and editing it themselves
+
+---
+
+## Summary Flow for Someone Using Your Template
+```
+Click "Deploy with Vercel" button
+        ↓
+Vercel forks your repo to their GitHub
+        ↓
+They edit index.html with their own info
+        ↓
+Push → Vercel auto-redeploys
+        ↓
+Live portfolio at their-name.vercel.app
