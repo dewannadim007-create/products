@@ -404,7 +404,7 @@
                         <div>
                             <h3>Email</h3>
                             <!-- TEMPLATE: Replace with your email address -->
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f9eff5f2aee5ede1e9ecc0e5f8e1edf0ece5aee3efed">[email&#160;protected]</a></p>
+                            <p>your.email@example.com</p>
                         </div>
                     </div>
 
@@ -469,7 +469,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         document.getElementById("contact-form").addEventListener("submit", function (event) {
             event.preventDefault();
 
@@ -519,4 +519,14 @@
                 formStatus.style.backgroundColor = "#d4edda";
                 formStatus.style.color = "#155724";
                 formStatus.style.border = "1px solid #c3e6cb";
-                formStatus.inner
+                formStatus.innerHTML = '<i class="fas fa-check-circle"></i> Email sent successfully!';
+                document.getElementById("contact-form").reset();
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
