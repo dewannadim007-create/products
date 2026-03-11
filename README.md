@@ -2,6 +2,7 @@
 
 A clean, interactive, and fully customizable personal portfolio template for developers. Built with **pure HTML, CSS, and JavaScript** — no frameworks, no npm, no build steps.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME)
 
 ## Features
 
