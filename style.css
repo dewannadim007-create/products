@@ -234,7 +234,8 @@ body {
     border-radius: 2px;
 }
 
-/* FIX: particles z-index set to 1 so it displays over all sections across the page.
+/* Particles z-index set above sections (z-index: 1) so the animation displays
+   across the entire page, not just the home section.
    pointer-events: none ensures it never blocks clicks. */
 #particles-js {
     position: fixed;
@@ -242,7 +243,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     background-color: transparent;
     pointer-events: none;
 }
